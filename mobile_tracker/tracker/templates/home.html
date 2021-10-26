@@ -1,0 +1,123 @@
+{%block page_content%}
+<html>
+<head>
+<style>
+body {
+    background-color: #FFFFFF;
+ }
+ h1 {
+    color: #02061c;
+    text-align: center;
+ }
+    .container,.inp {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 50px;
+  margin-left: 80px;
+  background-color: #143d59	;
+}
+
+input[type="number"] {
+  width: 100px;
+}
+
+input + span {
+  padding-right: 30px;
+}
+
+input:invalid+span:after {
+  position: top; content: '';
+  padding-left: 5px;
+  color: #3b6bd4;
+}
+
+input:valid+span:after {
+  position: absolute;
+  content: '';
+  padding-left: 5px;
+  color: #009000;
+}
+.heading{
+    margin-left:15px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+.inp{
+    margin-left:5px;
+}
+#id-inp{
+    margin-left:10px;
+}
+.mob-heading{
+    text-align:center;
+    font-weight: bold;
+    font-size: 50px;
+    margin-top:30px;
+    font-style: italic;
+}
+</style>
+</head>
+<div class="mob-heading">Mobile Number Tracker </br></div>
+<form method="POST" action='.'>
+    {% csrf_token %}
+ <div class="container">
+
+    <label for="telNo" class="heading">Enter a Mobile Number: </label>
+    <div class="inp" id="id-inp">{{ form.number }}{{ form.number.errors }}</div>
+    <span class="validity"></span>
+
+    <div class="center">
+     <button>Submit</button>
+    </div>
+ </div>
+</form>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 300px;
+        color: black;
+        text-align: center;
+        font-weight: bold;
+    }
+     div {
+        h2 {
+            text-align="center"
+    }
+</style>
+</head>
+<body>
+{% if phoneNumber %}
+<table style="width:60%">
+<caption style="font-size: 24px">Result:</caption>
+    <tr>
+        <th> Mobile Number </th>
+        <th> Location </th>
+        <th> Carrier </th>
+        <th> Country </th>
+    </tr>
+    <tr>
+        <td>{{phoneNumber}}</td>
+        <td>{{timeZone.0}}</td>
+        <td>{{Carrier}}</td>
+        <td>{{Region}}</td>
+    </tr>
+</table>
+{%endif%}
+</body>
+</html>
+
+{%endblock page_content%}
