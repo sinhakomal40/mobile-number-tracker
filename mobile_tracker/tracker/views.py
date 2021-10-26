@@ -3,7 +3,7 @@ from tracker.forms import *
 import phonenumbers as phn
 from phonenumbers import timezone, geocoder, carrier
 
-# Create your views here
+# HomePage
 def home(request):
     number = []
     timeZone = []
